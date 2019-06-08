@@ -1,0 +1,20 @@
+ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+ export CLICOLOR=1
+ export LSCOLORS=ExFxBxDxCxegedabagacad
+ alias ls='ls -GFh'
+ 
+ alias gb="git branch"
+ alias gl="git log"
+ alias gs="git status"
+ alias gchb="git checkout -b"
+ alias gch="git checkout"
+ alias gchm="gch master"
+ alias gsh="git stash"
+ alias gpo="git pull origin"
+ alias gpom="git pull origin master"
+ alias gpusho="git push origin"
+ alias gpushom="gpusho master"
+ alias gr="git reset"
+ alias gf="git fetch"
+ alias gm="git merge"
+ alias gmm="gm master"
