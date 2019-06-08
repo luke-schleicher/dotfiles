@@ -25,6 +25,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
+Plugin 'vimwiki/vimwiki'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -82,6 +84,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|docs'
 
 let NERDTreeShowHidden=1
 
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
 nnoremap <leader>d "_d
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -118,6 +122,9 @@ nnoremap <C-e> 3<C-e>
 " Move up and down by visible lines if current line is wrapped
 nnoremap j gj
 nnoremap k gk
+
+" I prefer 0 to take me to the first non-space character on the line
+nnoremap 0 0w
 
 inoremap jk <esc>
 inoremap kj <esc>
