@@ -2,19 +2,31 @@
  export CLICOLOR=1
  export LSCOLORS=ExFxBxDxCxegedabagacad
  alias ls='ls -GFh'
- 
- alias gb="git branch"
- alias gl="git log"
- alias gs="git status"
- alias gchb="git checkout -b"
- alias gch="git checkout"
+
+ alias g="git" 
+ alias gb="g branch"
+ alias gl="g log"
+ alias gs="g status"
+ alias ga="g add -A"
+ alias gchb="g checkout -b"
+ alias gch="g checkout"
  alias gchm="gch master"
- alias gsh="git stash"
- alias gpo="git pull origin"
- alias gpom="git pull origin master"
- alias gpusho="git push origin"
+ alias gsh="g stash"
+ alias gpo="g pull origin"
+ alias gpom="g pull origin master"
+ alias gpusho="g push origin"
  alias gpushom="gpusho master"
- alias gr="git reset"
- alias gf="git fetch"
- alias gm="git merge"
+ alias gr="g reset"
+ alias grh="gr --hard"
+ alias gf="g fetch"
+ alias gm="g merge"
  alias gmm="gm master"
+ alias glac="g rev-parse HEAD"
+ alias gchp="g cherry-pick"
+
+ if [ -f ~/.git-completion.bash ]; then
+   . ~/.git-completion.bash
+
+   # Add git completion to aliases
+   __git_complete gch _git_checkout
+ fi
