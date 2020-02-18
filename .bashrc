@@ -27,14 +27,15 @@
  alias gmm="gm master"
  alias glac="g rev-parse HEAD"
  alias gchp="g cherry-pick"
+ alias gd="g diff"
 
  alias ebash="vim ~/.bashrc"
  alias sbash="source ~/.bashrc"
 
  function gpushall() {
-   git add .
-   git commit -am "$1"
-   git push origin
+   ga
+   git commit -m "$1"
+   gpusho
  }
 
  alias dc="docker-compose"

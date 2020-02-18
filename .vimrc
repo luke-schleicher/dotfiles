@@ -1,46 +1,39 @@
-set nocompatible              " be iMproved, 
-filetype off                  " required
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
+" Package management
 Plugin 'VundleVim/Vundle.vim'
 
+"General
+Plugin 'vim-airline/vim-airline'
+
+" Navigation
+Plugin 'scrooloose/nerdtree'
+
+" Searching
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+
+" Git
+Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'sheerun/vim-polyglot'
+
+" Syntax Highlighting
+" Plugin 'sheerun/vim-polyglot'
+
+" Editing
 Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'zivyangll/git-blame.vim'
-Plugin 'vim-airline/vim-airline'
+Plugin 'ycm-core/YouCompleteMe'
 
+" Novelty
 Plugin 'vimwiki/vimwiki'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -118,7 +111,6 @@ nnoremap <Left> :vertical resize -20<cr>
 nnoremap <C-y> 3<C-y>
 nnoremap <C-e> 3<C-e>
 
-"
 " Move up and down by visible lines if current line is wrapped
 nnoremap j gj
 nnoremap k gk
@@ -130,6 +122,9 @@ inoremap jk <esc>
 inoremap kj <esc>
 vnoremap jk <esc>
 vnoremap kj <esc>
+
+nnoremap <leader>gt :YcmCompleter GoTo<cr>
+nnoremap <leader>gr :YcmCompleter GoToReferences<cr>
 
 augroup auto_saves
   autocmd!
