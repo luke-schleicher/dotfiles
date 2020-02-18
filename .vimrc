@@ -14,16 +14,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-" Plugin 'leafgarland/typescript-vim'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-commentary'
-" Plugin 'w0rp/ale'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'zivyangll/git-blame.vim'
+Plugin 'vim-airline/vim-airline'
 
 Plugin 'vimwiki/vimwiki'
 
@@ -73,10 +71,12 @@ set timeoutlen=500
 set ttimeoutlen=0
 set number
 set hlsearch
+set incsearch
 set splitbelow
 set splitright
 set noswapfile
 set textwidth=0 " Removes max line length
+set backspace=indent,eol,start
 
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -U -g ""'
 let g:ctrlp_use_caching = 1
@@ -90,8 +90,8 @@ nnoremap <leader>d "_d
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>n :NERDTreeToggle<cr>
-nnoremap <silent> <leader>l :noh<cr>
 nnoremap <leader>/ :Ag<cr>
+nnoremap <leader> :noh<cr> :<C-u>call gitblame#echo()<cr>
 
 nnoremap oo o<Esc>k
 nnoremap OO O<Esc>j
