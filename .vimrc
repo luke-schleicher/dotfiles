@@ -20,17 +20,20 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " Git
-Plugin 'zivyangll/git-blame.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " Syntax Highlighting
 " Plugin 'sheerun/vim-polyglot'
+Plugin 'ElmCast/elm-vim'
 
 " Editing
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'Galooshi/vim-import-js'
+Plugin 'vim-scripts/auto-pairs-gentle'
 
 " Novelty
 Plugin 'vimwiki/vimwiki'
@@ -70,21 +73,30 @@ set splitright
 set noswapfile
 set textwidth=0 " Removes max line length
 set backspace=indent,eol,start
+set shortmess-=S "displays number of search hits with current index
+set foldmethod=manual
 
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -U -g ""'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_custom_ignore = 'node_modules\|docs'
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+
+let g:AutoPairsUseInsertedCount=1
 
 let NERDTreeShowHidden=1
 
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+nnoremap d "+d
+nnoremap y "+y
+nnoremap p "+p
 nnoremap <leader>d "_d
 nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>/ :Ag<cr>
-nnoremap <leader> :noh<cr> :<C-u>call gitblame#echo()<cr>
+nnoremap <BS> :noh<cr>
+nnoremap <leader>b :Gblame<cr>
+" nnoremap <leader> :noh<cr> :<C-u>call gitblame#echo()<cr>
+nnoremap zf zfi{
 
 nnoremap oo o<Esc>k
 nnoremap OO O<Esc>j
@@ -97,10 +109,10 @@ nnoremap <C-h> <C-w>h
 nnoremap H gT
 nnoremap L gt
 nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>v :vsplit<cr>
-nnoremap <leader>s :split<cr>
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
+nnoremap <leader>v :split<cr>
+nnoremap <leader>sp :vsplit<cr>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>q :q!<cr>
 
 
 nnoremap <Up> :resize +20<cr>
@@ -115,16 +127,13 @@ nnoremap <C-e> 3<C-e>
 nnoremap j gj
 nnoremap k gk
 
-" I prefer 0 to take me to the first non-space character on the line
-nnoremap 0 0w
-
 inoremap jk <esc>
 inoremap kj <esc>
-vnoremap jk <esc>
-vnoremap kj <esc>
+inoremap JK <esc>
+inoremap KJ <esc>
 
-nnoremap <leader>gt :YcmCompleter GoTo<cr>
-nnoremap <leader>gr :YcmCompleter GoToReferences<cr>
+nnoremap <leader>g :YcmCompleter GoTo<cr>
+nnoremap <leader>r :YcmCompleter GoToReferences<cr>
 
 augroup auto_saves
   autocmd!
