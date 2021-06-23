@@ -7,7 +7,7 @@ alias g="git"
 alias gb="g branch"
 alias gba="gb -a"
 alias gbd="gb -D"
-alias gbda="gb | tr -d '*' | grep -v -e master -e main | xargs git branch -D"
+alias gbda="gb | tr -d '*' | grep -v -e master -e main -e dev | xargs git branch -D"
 alias gl="g log"
 alias gs="g status"
 alias ga="g add -A"
@@ -43,16 +43,8 @@ alias szsh="source ~/.zshrc"
 alias uuid="uuidgen | tr -d '\n' | pbcopy"
 alias dc="docker-compose"
 
-if [ -f ~/.git-completion.zsh ]; then
-  . ~/.git-completion.zsh
-
-  # Add git completion to aliases
-  __git_complete gch _git_checkout
-  __git_complete gb _git_branch
-  __git_complete gm _git_merge
-  __git_complete gbd _git_branch
-fi
-
+# Uses zsh's build-in tab-completion library for git
+autoload -Uz compinit && compinit
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
