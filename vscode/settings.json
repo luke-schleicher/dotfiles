@@ -1,0 +1,43 @@
+{
+    "workbench.colorTheme": "Solarized Dark",
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.zoomLevel": -1,
+    "explorer.confirmDelete": false,
+    "editor.lineNumbers": "relative",
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["k", "j"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["J", "K"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["K", "J"],
+            "after": ["<Esc>"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-y>"],
+            "after": [3, "<C-y>"]
+        },
+        {
+            "before": ["<C-e>"],
+            "after": [3, "<C-e>"]
+        },
+        {
+            "before": ["S-h"],
+            "commands": ["workbench.action.showPreviousWindowTab"]
+        }
+    ],
+    "vim.leader": "<space>"
+}
